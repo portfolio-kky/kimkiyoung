@@ -1,0 +1,92 @@
+@charset 'utf-8';
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Roboto:wght@400;700;900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  word-break: keep-all;
+  font: 1rem /1.5 "Kaushan Script", "Nanum Gothic", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 메인 */
+.portfolio-list {
+  /* 높이 */
+height: 920px;
+display: flex;
+}
+
+.portfolio-list .portfolio-item {
+  position: relative;
+  /* 정지 너비 */
+  width:500px;
+  overflow: hidden;
+  background-size: cover;
+display: block; 
+}
+
+.portfolio-list .portfolio-item:hover {
+  /* 펼져졌울때 너비 */
+  width: 1000px;
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+.item1{
+background: url("../img/seven-li-sum-2.jpg") no-repeat center center;
+}
+.item1:hover{
+background: url("../img/seven-li-sum-hover.jpg")no-repeat center center;
+}
+.item2{
+  background: url("../img/app-li-sim-1.jpg") no-repeat center center;
+  }
+  .item2:hover{
+  background: url("../img/app-li-sim-1-hover.jpg")no-repeat center center;
+  }
+  .item3{
+    background: url("../img/taxi-li-sum-1.png") no-repeat center center;
+    }
+    .item3:hover{
+    background: url("../img/taxi-li-sum-hover.jpg")no-repeat center center;
+    }
+    .item4{
+      background: url("../img/DSA.jpg") no-repeat center center;
+      }
+      .item4:hover{
+      background: url("../img/DSA.jpg")no-repeat center center;
+      }
+/* 포폴별 제목 */
+.portfolio-list .portfolio-item p {
+  position: absolute;
+  bottom: 5%;
+  left: 35%;
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+}
+
+/*반응형 */
+  /*mobile*/
+ @media screen and (max-width: 500px){
+  .portfolio-list {
+flex-direction:column;
+  }
+.portfolio-list .portfolio-item {
+width:100%;
+height:30%;
+ }
+ /* 포폴별 제목 */
+.portfolio-list .portfolio-item p {
+  position: absolute;
+  bottom: 10%;
+  left: 15%;
+  font-size: 20px;
+}
+}
