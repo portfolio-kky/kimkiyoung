@@ -49,15 +49,20 @@ $(function () {
   const $submenu = $('.submenu');
   const duration = 300;
 
+  // 데스크톱에서만 마우스 이벤트 작동
   $gnb.on('mouseenter', 'li', function () {
-    $header.addClass('active');
-    $(this).addClass('on');
-    $submenu.stop().show();
+    if ($(window).width() > 1024) {
+      $header.addClass('active');
+      $(this).addClass('on');
+      $submenu.stop().show();
+    }
   });
   $gnb.on('mouseleave', 'li', function () {
-    $header.removeClass('active');
-    $menu.removeClass('on');
-    $submenu.stop().hide();
+    if ($(window).width() > 1024) {
+      $header.removeClass('active');
+      $menu.removeClass('on');
+      $submenu.stop().hide();
+    }
   });
 
 
@@ -73,6 +78,65 @@ $(function () {
       // 마우스 휠을 내렸을 때
       console.log('휠 내림');
       $header.addClass('hide');
+    }
+  });
+
+  // 모바일 메뉴 토글
+  const $mobileMenuBtn = $('.mobile-menu-btn');
+  const $mobileGnb = $('.gnb');
+  
+  $mobileMenuBtn.on('click', function() {
+    console.log('햄버거 버튼 클릭됨');
+    console.log('현재 화면 너비:', $(window).width());
+    
+    $(this).toggleClass('active');
+    $mobileGnb.toggleClass('mobile-active');
+    
+    console.log('버튼 active 클래스:', $(this).hasClass('active'));
+    console.log('메뉴 mobile-active 클래스:', $mobileGnb.hasClass('mobile-active'));
+    
+    // 햄버거 메뉴 애니메이션
+    if ($(this).hasClass('active')) {
+      $(this).find('span').eq(0).css('transform', 'rotate(45deg) translate(5px, 5px)');
+      $(this).find('span').eq(1).css('opacity', '0');
+      $(this).find('span').eq(2).css('transform', 'rotate(-45deg) translate(7px, -6px)');
+    } else {
+      $(this).find('span').eq(0).css('transform', 'none');
+      $(this).find('span').eq(1).css('opacity', '1');
+      $(this).find('span').eq(2).css('transform', 'none');
+    }
+  });
+
+  // 모바일에서 메뉴 클릭 시 메뉴 닫기
+  $mobileGnb.on('click', 'a', function() {
+    if ($(window).width() <= 1024) {
+      $mobileMenuBtn.removeClass('active');
+      $mobileGnb.removeClass('mobile-active');
+      $mobileMenuBtn.find('span').eq(0).css('transform', 'none');
+      $mobileMenuBtn.find('span').eq(1).css('opacity', '1');
+      $mobileMenuBtn.find('span').eq(2).css('transform', 'none');
+    }
+  });
+
+  // 화면 크기 변경 시 메뉴 상태 초기화
+  $(window).on('resize', function() {
+    if ($(window).width() > 1024) {
+      // 데스크톱으로 변경 시 모바일 메뉴 닫기
+      $mobileMenuBtn.removeClass('active');
+      $mobileGnb.removeClass('mobile-active');
+      $mobileMenuBtn.find('span').eq(0).css('transform', 'none');
+      $mobileMenuBtn.find('span').eq(1).css('opacity', '1');
+      $mobileMenuBtn.find('span').eq(2).css('transform', 'none');
+      
+      // 데스크톱 메뉴 상태 초기화
+      $header.removeClass('active');
+      $menu.removeClass('on');
+      $submenu.hide();
+    } else {
+      // 태블릿/모바일로 변경 시 데스크톱 메뉴 상태 초기화
+      $header.removeClass('active');
+      $menu.removeClass('on');
+      $submenu.hide();
     }
   });
 });

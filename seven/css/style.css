@@ -14,10 +14,10 @@ a {
   color: inherit;
 }
 
-
 .inner {
   width: 1060px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* 제목 */
@@ -87,13 +87,11 @@ header nav {
 
 .gnb {
   display: flex;
-
 }
 
 .gnb>li>a {
   display: block;
   padding: 0 40px;
-
 }
 
 .gnb>li {
@@ -138,6 +136,17 @@ header nav {
 
 .slide .slide-img {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide .slide-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* 슬라이드 버튼 */
@@ -151,7 +160,6 @@ header nav {
   width: 47px;
   height: 47px;
 }
-
 
 .visual .btn.btn-prev {
   left: 5%;
@@ -196,6 +204,7 @@ header nav {
   justify-content: center;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .download div {
@@ -215,6 +224,7 @@ header nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .tab-menu li {
@@ -247,8 +257,9 @@ header nav {
 .tab-con-item {
   /* 가로배치 */
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 
 .tab-con-item dl {
   width: 294px;
@@ -283,6 +294,7 @@ header nav {
 .card-slide {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card-img {
@@ -303,6 +315,7 @@ header nav {
 .card-slide div dl {
   position: absolute;
   left: 30%;
+  z-index: 10;
 }
 
 .card-slide div dl dt {
@@ -363,6 +376,21 @@ header nav {
 
 .seven-back {
   margin-top: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.seven-back figure {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.seven-back figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 #footer {
@@ -379,9 +407,7 @@ header nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
-
 
 .footer-wrap address {
   display: flex;
@@ -395,6 +421,7 @@ header nav {
   /* width: 748px; */
   justify-content: space-between;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .address-2 {
@@ -402,11 +429,13 @@ header nav {
   /* width: 1215px; */
   justify-content: space-between;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .address-3 {
   display: flex;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 #footer address p {
@@ -419,6 +448,7 @@ header nav {
   color: #119973;
   transition: 0.4s;
 }
+
 .eventpage,
 .portfolio-process{
   position: fixed;
@@ -428,6 +458,7 @@ header nav {
   text-align: center;
   padding: 10px;
 }
+
 .eventpage {
   bottom: 80px;
   right: 30px;
@@ -436,4 +467,641 @@ header nav {
 .portfolio-process {
   bottom: 20px;
   right: 30px;
+}
+
+/* ===== 반응형 미디어 쿼리 ===== */
+
+/* 태블릿 (768px ~ 1024px) */
+@media screen and (max-width: 1024px) {
+  .inner {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 15px;
+  }
+  
+  /* 태블릿에서도 햄버거 메뉴 사용 */
+  .gnb {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+  }
+  
+  .mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #666;
+    margin: 6px 0;
+    transition: 0.3s;
+  }
+  
+  .gnb > li > a {
+    padding: 0 25px;
+    font-size: 18px;
+  }
+  
+  /* 태블릿 헤더 높이 조정 */
+  header {
+    position: relative;
+  }
+  
+  header nav {
+    height: 80px;
+  }
+  
+  .logo img {
+    width: 140px;
+  }
+  
+  .sec-title {
+    font-size: 28px;
+    margin-top: 120px;
+  }
+  
+  .sec-title-p {
+    font-size: 18px;
+  }
+  
+  .tab-con-item dl {
+    width: 250px;
+    height: 280px;
+    margin: 0 8px;
+  }
+  
+  .guid-list {
+    width: 400px;
+    height: 300px;
+    padding: 20px 30px;
+  }
+  
+  .guid-list dt {
+    font-size: 26px;
+  }
+  
+  .guid-list dd {
+    font-size: 18px;
+  }
+  
+  .download div {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .tab-menu li {
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+  
+  .visual .btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .visual .btn.btn-prev {
+    left: 3%;
+  }
+  
+  .visual .btn.btn-next {
+    right: 3%;
+  }
+  
+  /* 태블릿 슬라이드 이미지 수정 */
+  .slide .slide-img {
+    overflow: hidden;
+  }
+  
+  .slide .slide-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* 태블릿 card-slide 수정 */
+  .card-slide div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
+  
+  .card-img {
+    margin: 0;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-slide div dl {
+    position: static;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 태블릿 모바일 메뉴 스타일 */
+  .gnb.mobile-active {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .gnb.mobile-active > li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .gnb.mobile-active > li > a {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .gnb.mobile-active .submenu {
+    position: static;
+    display: block !important;
+    width: 100%;
+    padding: 0;
+    background: #f8f8f8;
+  }
+  
+  .gnb.mobile-active .submenu li a {
+    padding: 12px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+/* 모바일 (480px ~ 767px) */
+@media screen and (max-width: 767px) {
+  .inner {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* 헤더 모바일 메뉴 */
+  header nav {
+    height: 70px;
+  }
+  
+  .logo img {
+    width: 120px;
+  }
+  
+  .gnb {
+    display: none; /* 모바일에서는 숨김, 햄버거 메뉴로 대체 */
+  }
+  
+  /* 햄버거 메뉴 버튼 추가 */
+  .mobile-menu-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+  }
+  
+  .mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #666;
+    margin: 6px 0;
+    transition: 0.3s;
+  }
+  
+  /* 모바일 메뉴 활성화 스타일 */
+  .gnb.mobile-active {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .gnb.mobile-active > li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .gnb.mobile-active > li > a {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .gnb.mobile-active .submenu {
+    position: static;
+    display: block !important;
+    width: 100%;
+    padding: 0;
+    background: #f8f8f8;
+  }
+  
+  .gnb.mobile-active .submenu li a {
+    padding: 12px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .sec-title {
+    font-size: 24px;
+    margin-top: 100px;
+    padding: 15px 0;
+  }
+  
+  .sec-title-p {
+    font-size: 16px;
+  }
+  
+  .slide {
+    margin-top: 70px;
+  }
+  
+  /* 모바일 슬라이드 이미지 수정 */
+  .slide .slide-img {
+    overflow: hidden;
+  }
+  
+  .slide .slide-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .download {
+    margin-top: 100px;
+    flex-direction: column;
+  }
+  
+  .download div {
+    padding: 15px;
+    margin: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .download div figure img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .tab-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .tab-menu li {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .tab-contents {
+    padding: 15px;
+  }
+  
+  .tab-con-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-con-item dl {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+  }
+  
+  .tab-con-item dt {
+    height: 120px;
+    margin: 20px 0 10px 0;
+  }
+  
+  .card-slide {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-slide div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .card-img {
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .card-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-slide div dl {
+    position: static;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .guid-sec {
+    padding: 30px 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .guid-list {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .guid-list dt {
+    font-size: 22px;
+    margin: 15px 0;
+  }
+  
+  .guid-list dd {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+  
+  .seven-back {
+    margin-top: 100px;
+    width: 100%;
+  }
+  
+  .seven-back figure {
+    width: 100%;
+  }
+  
+  .seven-back figure img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .address-1,
+  .address-2,
+  .address-3 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #footer address p {
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  .visual .btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .visual .btn.btn-prev {
+    left: 2%;
+  }
+  
+  .visual .btn.btn-next {
+    right: 2%;
+  }
+  
+  .eventpage,
+  .portfolio-process {
+    right: 15px;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .eventpage {
+    bottom: 70px;
+  }
+  
+  .portfolio-process {
+    bottom: 15px;
+  }
+}
+
+/* 작은 모바일 (320px ~ 479px) */
+@media screen and (max-width: 479px) {
+  .inner {
+    padding: 0 8px;
+  }
+  
+  .sec-title {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+  
+  .sec-title-p {
+    font-size: 14px;
+  }
+  
+  .slide {
+    margin-top: 60px;
+  }
+  
+  /* 작은 모바일 슬라이드 이미지 수정 */
+  .slide .slide-img {
+    overflow: hidden;
+  }
+  
+  .slide .slide-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .download {
+    margin-top: 80px;
+  }
+  
+  .download div {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .tab-menu li {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+  
+  .tab-contents {
+    padding: 10px;
+  }
+  
+  .tab-con-item dl {
+    max-width: 280px;
+  }
+  
+  .tab-con-item dt {
+    height: 100px;
+  }
+  
+  /* 작은 모바일 card-slide 수정 */
+  .card-slide div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card-img {
+    margin: 0;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card-slide div dl {
+    position: static;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .guid-list {
+    max-width: 300px;
+    padding: 15px;
+  }
+  
+  .guid-list dt {
+    font-size: 20px;
+  }
+  
+  .guid-list dd {
+    font-size: 14px;
+  }
+  
+  .seven-back {
+    margin-top: 80px;
+    width: 100%;
+  }
+  
+  .seven-back figure {
+    width: 100%;
+  }
+  
+  .seven-back figure img {
+    width: 100%;
+    height: auto;
+  }
+  
+  #footer {
+    padding: 20px;
+  }
+  
+  #footer address p {
+    font-size: 14px;
+  }
+  
+  .visual .btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .eventpage,
+  .portfolio-process {
+    right: 10px;
+    padding: 6px;
+    font-size: 12px;
+  }
+  
+  .eventpage {
+    bottom: 60px;
+  }
+  
+  .portfolio-process {
+    bottom: 10px;
+  }
+}
+
+/* 큰 화면 (1200px 이상) */
+@media screen and (min-width: 1200px) {
+  .inner {
+    width: 1200px;
+  }
+  
+  .sec-title {
+    font-size: 32px;
+  }
+  
+  .sec-title-p {
+    font-size: 22px;
+  }
+  
+  .tab-con-item dl {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .guid-list {
+    width: 520px;
+    height: 350px;
+  }
+  
+  .guid-list dt {
+    font-size: 32px;
+  }
+  
+  .guid-list dd {
+    font-size: 22px;
+  }
 }
